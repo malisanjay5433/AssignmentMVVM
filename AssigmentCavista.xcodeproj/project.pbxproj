@@ -15,6 +15,11 @@
 		919393EE2535EE29009956C6 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 919393EC2535EE29009956C6 /* LaunchScreen.storyboard */; };
 		919393F92535EE2A009956C6 /* AssigmentCavistaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919393F82535EE2A009956C6 /* AssigmentCavistaTests.swift */; };
 		919394042535EE2A009956C6 /* AssigmentCavistaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919394032535EE2A009956C6 /* AssigmentCavistaUITests.swift */; };
+		919394172535EF37009956C6 /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919394162535EF37009956C6 /* Users.swift */; };
+		919394192535EFAB009956C6 /* UsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919394182535EFAB009956C6 /* UsersViewController.swift */; };
+		9193941D2535F1BD009956C6 /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193941C2535F1BD009956C6 /* Service.swift */; };
+		9193941F2535F454009956C6 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9193941E2535F454009956C6 /* UserCell.swift */; };
+		919394212535FAE9009956C6 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919394202535FAE9009956C6 /* UserViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +54,11 @@
 		919393FF2535EE2A009956C6 /* AssigmentCavistaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AssigmentCavistaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		919394032535EE2A009956C6 /* AssigmentCavistaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssigmentCavistaUITests.swift; sourceTree = "<group>"; };
 		919394052535EE2A009956C6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		919394162535EF37009956C6 /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		919394182535EFAB009956C6 /* UsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersViewController.swift; sourceTree = "<group>"; };
+		9193941C2535F1BD009956C6 /* Service.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Service.swift; sourceTree = "<group>"; };
+		9193941E2535F454009956C6 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		919394202535FAE9009956C6 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +109,12 @@
 		919393E02535EE26009956C6 /* AssigmentCavista */ = {
 			isa = PBXGroup;
 			children = (
+				9193941B2535F0DB009956C6 /* Uitls */,
+				9193941A2535F0D6009956C6 /* API */,
+				919394152535EEEE009956C6 /* View */,
+				919394142535EE4C009956C6 /* Controller */,
+				919394132535EE45009956C6 /* ViewModel */,
+				919394112535EE37009956C6 /* Model */,
 				919393E12535EE26009956C6 /* AppDelegate.swift */,
 				919393E32535EE26009956C6 /* SceneDelegate.swift */,
 				919393E52535EE26009956C6 /* ViewController.swift */,
@@ -126,6 +142,53 @@
 				919394052535EE2A009956C6 /* Info.plist */,
 			);
 			path = AssigmentCavistaUITests;
+			sourceTree = "<group>";
+		};
+		919394112535EE37009956C6 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				919394162535EF37009956C6 /* Users.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		919394132535EE45009956C6 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				919394202535FAE9009956C6 /* UserViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		919394142535EE4C009956C6 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				919394182535EFAB009956C6 /* UsersViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		919394152535EEEE009956C6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9193941E2535F454009956C6 /* UserCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9193941A2535F0D6009956C6 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				9193941C2535F1BD009956C6 /* Service.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		9193941B2535F0DB009956C6 /* Uitls */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Uitls;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -259,9 +322,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				919394172535EF37009956C6 /* Users.swift in Sources */,
 				919393E62535EE26009956C6 /* ViewController.swift in Sources */,
+				919394212535FAE9009956C6 /* UserViewModel.swift in Sources */,
+				9193941F2535F454009956C6 /* UserCell.swift in Sources */,
+				919394192535EFAB009956C6 /* UsersViewController.swift in Sources */,
 				919393E22535EE26009956C6 /* AppDelegate.swift in Sources */,
 				919393E42535EE26009956C6 /* SceneDelegate.swift in Sources */,
+				9193941D2535F1BD009956C6 /* Service.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
