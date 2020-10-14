@@ -66,10 +66,10 @@ class UserCell: UITableViewCell {
     }
     var userViewModel: UserViewModel! {
           didSet {
-              textLabel?.text = userViewModel.data
-              detailTextLabel?.text = userViewModel.detailTextString
+              textLabel?.text = userViewModel.imageOrString
+//              detailTextLabel?.text = userViewModel.detailTextString
 //              accessoryType = userViewModel.accessoryType
-              dayLabel.text = " Type : \(userViewModel.data)"
+              dayLabel.text = " Type : \(userViewModel.type)"
               dateLabel.text = "\(userViewModel.dateString)"
           }
       }

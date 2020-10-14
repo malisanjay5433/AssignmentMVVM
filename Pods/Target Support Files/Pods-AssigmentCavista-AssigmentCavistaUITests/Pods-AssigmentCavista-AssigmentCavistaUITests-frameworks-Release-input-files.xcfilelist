@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-AssigmentCavista-AssigmentCavistaUITests/Pods-AssigmentCavista-AssigmentCavistaUITests-frameworks.sh
+${BUILT_PRODUCTS_DIR}/JGProgressHUD/JGProgressHUD.framework
+${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework
+${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework

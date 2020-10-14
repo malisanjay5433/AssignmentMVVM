@@ -10,14 +10,14 @@ import UIKit
 
 class UsersViewController: UIViewController {
     var userViewModels = [UserViewModel]()
-//    tableView creation
+    //    tableView creation
     let tableview: UITableView = {
-            let tv = UITableView()
-            tv.backgroundColor = UIColor.white
-            tv.translatesAutoresizingMaskIntoConstraints = false
-            return tv
+        let tv = UITableView()
+        tv.backgroundColor = UIColor.white
+        tv.translatesAutoresizingMaskIntoConstraints = false
+        return tv
     }()
-//    constaint for tableView
+    // constraint for tableView
     func setupTableView() {
         tableview.register(UserCell.self, forCellReuseIdentifier: "cellId")
         view.addSubview(tableview)
@@ -43,32 +43,41 @@ class UsersViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Users"
-        fetchData()
         setupTableView()
         tableview.delegate = self
         tableview.dataSource = self
+        fetchData()
+        
     }
 }
-
+// MARK tableView datasource methid
 extension UsersViewController:UITableViewDataSource{
-  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-         return  userViewModels.count
-     }
-     
-     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         // 2
-         let cell = tableview.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! UserCell
-         cell.backgroundColor = UIColor.white
-         cell.userViewModel = userViewModels[indexPath.row]
-         return cell
-     }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return  userViewModels.count
+    }
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableview.dequeueReusableCell(withIdentifier: "cellId", for: indexPath) as! UserCell
+        cell.backgroundColor = UIColor.white
+        cell.userViewModel = userViewModels[indexPath.row]
+        return cell
+    }
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
 }
+// MARK tableView delegate methid
 extension UsersViewController:UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let index = indexPath.row
-        print("index:\(index)")
+        let vc = DetailUserViewController()
+        vc.userdetails = userViewModels[indexPath.row]
+        self.navigationController?.pushViewController(vc, animated: true)
     }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if (segue.identifier == "DetailVC"){
+//            guard let selectedPath = tableview.indexPathForSelectedRow else { return }
+//            if let vc  = segue.destination as? DetailUserViewController {
+//                vc.userdetails = userViewModels[selectedPath.row]
+//            }
+//        }
+//    }
 }

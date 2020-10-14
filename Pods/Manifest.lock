@@ -1,0 +1,26 @@
+PODS:
+  - JGProgressHUD (2.1)
+  - SDWebImage (5.8.4):
+    - SDWebImage/Core (= 5.8.4)
+  - SDWebImage/Core (5.8.4)
+  - SnapKit (5.0.1)
+
+DEPENDENCIES:
+  - JGProgressHUD
+  - SDWebImage (~> 5.0)
+  - SnapKit (~> 5.0.0)
+
+SPEC REPOS:
+  https://cdn.cocoapods.org/:
+    - JGProgressHUD
+    - SDWebImage
+    - SnapKit
+
+SPEC CHECKSUMS:
+  JGProgressHUD: aa403e9a5b45cae98903c4600cccdd98c0c3ec90
+  SDWebImage: cf6922231e95550934da2ada0f20f2becf2ceba9
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+
+PODFILE CHECKSUM: 2a4335166d4c656342cc72103c1221c7c3989def
+
+COCOAPODS: 1.8.4
