@@ -11,7 +11,6 @@ import UIKit
 
 struct UserViewModel {
     let type: String
-//    let detailTextString: String
     let dateString: String
     let imageOrString:String
     // Dependency Injection (DI)

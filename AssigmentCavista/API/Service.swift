@@ -8,7 +8,6 @@
 
 import Foundation
 import RealmSwift
-//import UIKit
 class Service: NSObject {
     static let shared = Service()
     func fetchUsers(completion: @escaping ([Users]?, Error?) -> ()) {

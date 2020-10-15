@@ -10,14 +10,14 @@ import UIKit
 import RealmSwift
 class UsersViewController: UIViewController {
     var userViewModels = [UserViewModel]()
-    //    tableView creation
+    //  tableView creation
     let tableview: UITableView = {
         let tv = UITableView()
         tv.backgroundColor = UIColor.white
         tv.translatesAutoresizingMaskIntoConstraints = false
         return tv
     }()
-    // constraint for tableView
+    //  tableView setup, cell register with reuse Identifier
     func setupTableView() {
         tableview.register(UserCell.self, forCellReuseIdentifier: "cellId")
         view.addSubview(tableview)
@@ -28,7 +28,12 @@ class UsersViewController: UIViewController {
             tableview.leftAnchor.constraint(equalTo: self.view.leftAnchor)
         ])
     }
-    fileprivate func fetchData() {
+    
+/*
+      Fetch Users from Server.
+      Fetch data from Realm database If datas saved in database
+ */
+   fileprivate func fetchData() {
         let realm = try! Realm()
         let user = realm.objects(Users.self)
         if user.isEmpty{
@@ -53,10 +58,9 @@ class UsersViewController: UIViewController {
         tableview.delegate = self
         tableview.dataSource = self
         fetchData()
-        
     }
 }
-// MARK tableView datasource methid
+// MARK tableView datasource method
 extension UsersViewController:UITableViewDataSource{
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return  userViewModels.count
@@ -71,19 +75,11 @@ extension UsersViewController:UITableViewDataSource{
         return 100
     }
 }
-// MARK tableView delegate methid
+// MARK tableView delegate method
 extension UsersViewController:UITableViewDelegate{
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let vc = DetailUserViewController()
         vc.userdetails = userViewModels[indexPath.row]
         self.navigationController?.pushViewController(vc, animated: true)
     }
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if (segue.identifier == "DetailVC"){
-//            guard let selectedPath = tableview.indexPathForSelectedRow else { return }
-//            if let vc  = segue.destination as? DetailUserViewController {
-//                vc.userdetails = userViewModels[selectedPath.row]
-//            }
-//        }
-//    }
 }

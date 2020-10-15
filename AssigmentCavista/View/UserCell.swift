@@ -34,13 +34,13 @@ class UserCell: UITableViewCell {
         return label
     }()
     let dateLabel: UILabel = {
-          let label = UILabel()
-          label.text = "Day 1"
-          label.textColor = UIColor.white
-          label.font = UIFont.boldSystemFont(ofSize: 16)
-          label.translatesAutoresizingMaskIntoConstraints = false
-          return label
-      }()
+        let label = UILabel()
+        label.text = "Day 1"
+        label.textColor = UIColor.white
+        label.font = UIFont.boldSystemFont(ofSize: 16)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
     func setupView() {
         addSubview(cellView)
         cellView.addSubview(dayLabel)
@@ -58,19 +58,16 @@ class UserCell: UITableViewCell {
         dayLabel.centerYAnchor.constraint(equalTo: cellView.centerYAnchor).isActive = true
         dayLabel.leftAnchor.constraint(equalTo: cellView.leftAnchor, constant: 20).isActive = true
         
-        
         dateLabel.heightAnchor.constraint(equalToConstant: 200).isActive = true
         dateLabel.widthAnchor.constraint(equalToConstant: 200).isActive = true
         dateLabel.centerYAnchor.constraint(equalTo: cellView.centerYAnchor).isActive = true
         dateLabel.leftAnchor.constraint(equalTo: dayLabel.rightAnchor, constant: 20).isActive = true
     }
     var userViewModel: UserViewModel! {
-          didSet {
-              textLabel?.text = userViewModel.imageOrString
-//              detailTextLabel?.text = userViewModel.detailTextString
-//              accessoryType = userViewModel.accessoryType
-              dayLabel.text = " Type : \(userViewModel.type)"
-              dateLabel.text = "\(userViewModel.dateString)"
-          }
-      }
+        didSet {
+            textLabel?.text = userViewModel.imageOrString
+            dayLabel.text = " Type : \(userViewModel.type)"
+            dateLabel.text = "\(userViewModel.dateString)"
+        }
+    }
 }
