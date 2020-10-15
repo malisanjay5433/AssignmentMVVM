@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import RealmSwift
 //import UIKit
 class Service: NSObject {
     static let shared = Service()
@@ -22,13 +23,31 @@ class Service: NSObject {
             // check response
             guard let data = data else { return }
             do {
-                let courses = try JSONDecoder().decode([Users].self, from: data)
+                let users = try JSONDecoder().decode([Users].self, from: data)
+                do {
+                    let realm = try Realm()
+                    realm.beginWrite()
+                    for x in users {
+                        let user = Users()
+                        user.date = x.date
+                        user.data = x.data
+                        user.id = x.id
+                        user.type = x.type
+                        realm.add(user, update: Realm.UpdatePolicy.modified)
+                    }
+                    try! realm.commitWrite()
+                    print("Successfully Saved in Realm.....")
+                } catch {
+                    print(error.localizedDescription)
+                }
+                
                 DispatchQueue.main.async {
-                    completion(courses, nil)
+                    completion(users, nil)
+                    print()
                 }
             } catch let jsonErr {
                 print("Failed to decode:", jsonErr)
             }
-            }.resume()
+        }.resume()
     }
 }

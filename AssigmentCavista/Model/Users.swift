@@ -7,9 +7,14 @@
 //
 
 import Foundation
-struct Users:Codable{
-    let id:String?
-    let type:String?
-    let date:String?
-    let data:String?
+import RealmSwift
+class Users:Object,Codable{
+    @objc dynamic var id:String?
+    @objc dynamic var type:String?
+    @objc dynamic var date:String?
+    @objc dynamic var data:String?
+   
+    override static func primaryKey() -> String? {
+        return "id"
+    }
 }

@@ -4,9 +4,10 @@
 target 'AssigmentCavista' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
-  pod 'SnapKit', '~> 5.0.0'
+#  pod 'SnapKit', '~> 5.0.0'
   pod 'SDWebImage', '~> 5.0'
   pod 'JGProgressHUD'
+  pod 'RealmSwift'
   # Pods for AssigmentCavista
 
   target 'AssigmentCavistaTests' do

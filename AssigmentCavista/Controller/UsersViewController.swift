@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import RealmSwift
 class UsersViewController: UIViewController {
     var userViewModels = [UserViewModel]()
     //    tableView creation
@@ -29,16 +29,22 @@ class UsersViewController: UIViewController {
         ])
     }
     fileprivate func fetchData() {
+        let realm = try! Realm()
+        let user = realm.objects(Users.self)
+        if user.isEmpty{
         Service.shared.fetchUsers { (users, err) in
             if let err = err {
                 print("Failed to fetch courses:", err)
                 return
             }
-            self.userViewModels = users?.map({return UserViewModel(user: $0)}) ?? []
+            self.userViewModels = user.map({return UserViewModel(user: $0)})
             DispatchQueue.main.async {
                 self.tableview.reloadData()
             }
         }
+       }
+        self.userViewModels = user.map({return UserViewModel(user: $0)})
+        print("self.userViewModels:\(self.userViewModels)")
     }
     override func viewDidLoad() {
         super.viewDidLoad()

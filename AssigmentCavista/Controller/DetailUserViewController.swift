@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import SnapKit
 import SDWebImage
 class DetailUserViewController: UIViewController {
     var userdetails:UserViewModel?
@@ -17,12 +16,6 @@ class DetailUserViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         setupView()
-//        self.view.addSubview(box)
-//        box.backgroundColor = .green
-//        box.snp.makeConstraints { (make) -> Void in
-//           make.width.height.equalTo(50)
-//           make.center.equalTo(self.view)
-//        }
     }
     let cellView: UIView = {
         let view = UIView()
@@ -77,9 +70,8 @@ class DetailUserViewController: UIViewController {
         }
         else if userdetails?.type.lowercased() == "image"{
             cellView.addSubview(descriptionImage)
-            descriptionImage.anchor(top:cellView.topAnchor,left: cellView.leftAnchor,right: cellView.rightAnchor,paddingTop:130,paddingLeft: 16,paddingRight: 16)
-            descriptionImage.sd_setImage(with:URL(string:userdetails?.imageOrString ?? ))
-            descriptionImage
+            descriptionImage.anchor(top:cellView.topAnchor,left: cellView.leftAnchor,bottom:cellView.bottomAnchor, right: cellView.rightAnchor,paddingTop:130, paddingLeft: 16, paddingBottom:200,paddingRight: 16)
+            descriptionImage.sd_setImage(with:URL(string:userdetails?.imageOrString ?? "" ))
         }
     }
 }
