@@ -8,6 +8,7 @@
 
 import UIKit
 import RealmSwift
+import JGProgressHUD
 class UsersViewController: UIViewController {
     var userViewModels = [UserViewModel]()
     //  tableView creation
@@ -37,7 +38,10 @@ class UsersViewController: UIViewController {
         let realm = try! Realm()
         let user = realm.objects(Users.self)
         if user.isEmpty{
-        Service.shared.fetchUsers { (users, err) in
+            let hud = JGProgressHUD(style: .dark)
+            hud.textLabel.text = "Loading"
+            hud.show(in: self.view)
+           Service.shared.fetchUsers { (users, err) in
             if let err = err {
                 print("Failed to fetch courses:", err)
                 return
@@ -45,11 +49,11 @@ class UsersViewController: UIViewController {
             self.userViewModels = user.map({return UserViewModel(user: $0)})
             DispatchQueue.main.async {
                 self.tableview.reloadData()
-            }
-        }
+                hud.dismiss()
+             }
+           }
        }
         self.userViewModels = user.map({return UserViewModel(user: $0)})
-        print("self.userViewModels:\(self.userViewModels)")
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +61,7 @@ class UsersViewController: UIViewController {
         setupTableView()
         tableview.delegate = self
         tableview.dataSource = self
+        tableview.tableFooterView = UIView()
         fetchData()
     }
 }
