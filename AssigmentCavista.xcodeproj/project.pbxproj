@@ -25,6 +25,7 @@
 		919394212535FAE9009956C6 /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919394202535FAE9009956C6 /* UserViewModel.swift */; };
 		919394232536B214009956C6 /* DetailUserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919394222536B214009956C6 /* DetailUserViewController.swift */; };
 		919394252536C79D009956C6 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 919394242536C79D009956C6 /* Extensions.swift */; };
+		91939427253959A4009956C6 /* SortButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91939426253959A4009956C6 /* SortButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -72,6 +73,7 @@
 		919394202535FAE9009956C6 /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 		919394222536B214009956C6 /* DetailUserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailUserViewController.swift; sourceTree = "<group>"; };
 		919394242536C79D009956C6 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		91939426253959A4009956C6 /* SortButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SortButton.swift; sourceTree = "<group>"; };
 		A54D49FAEDE1F03FC1B9F36F /* Pods-AssigmentCavista.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssigmentCavista.debug.xcconfig"; path = "Target Support Files/Pods-AssigmentCavista/Pods-AssigmentCavista.debug.xcconfig"; sourceTree = "<group>"; };
 		F644FE75DB29C4417D15C15E /* Pods-AssigmentCavista.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssigmentCavista.release.xcconfig"; path = "Target Support Files/Pods-AssigmentCavista/Pods-AssigmentCavista.release.xcconfig"; sourceTree = "<group>"; };
 		FA543BCEEA0A313025D209F3 /* Pods-AssigmentCavista-AssigmentCavistaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AssigmentCavista-AssigmentCavistaUITests.release.xcconfig"; path = "Target Support Files/Pods-AssigmentCavista-AssigmentCavistaUITests/Pods-AssigmentCavista-AssigmentCavistaUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -207,6 +209,7 @@
 			isa = PBXGroup;
 			children = (
 				9193941E2535F454009956C6 /* UserCell.swift */,
+				91939426253959A4009956C6 /* SortButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -479,6 +482,7 @@
 				919394172535EF37009956C6 /* Users.swift in Sources */,
 				919394232536B214009956C6 /* DetailUserViewController.swift in Sources */,
 				919394252536C79D009956C6 /* Extensions.swift in Sources */,
+				91939427253959A4009956C6 /* SortButton.swift in Sources */,
 				919393E62535EE26009956C6 /* ViewController.swift in Sources */,
 				919394212535FAE9009956C6 /* UserViewModel.swift in Sources */,
 				9193941F2535F454009956C6 /* UserCell.swift in Sources */,

@@ -29,31 +29,47 @@ class UsersViewController: UIViewController {
             tableview.leftAnchor.constraint(equalTo: self.view.leftAnchor)
         ])
     }
-    
-/*
-      Fetch Users from Server.
-      Fetch data from Realm database If datas saved in database
- */
-   fileprivate func fetchData() {
+    @objc func didTapSort(){
+        let realm = try! Realm()
+        let user = realm.objects(Users.self)
+        self.userViewModels = user.map({return UserViewModel(user: $0)}).sorted(by: { (v1, v2) -> Bool in
+            return v1.type > v2.type
+        })
+        DispatchQueue.main.async {
+            self.tableview.reloadData()
+        }
+        print("didTapSort")
+    }
+    /*
+     Fetch Users from Server.
+     Fetch data from Realm database If datas saved in database
+     */
+    fileprivate func fetchData() {
         let realm = try! Realm()
         let user = realm.objects(Users.self)
         if user.isEmpty{
             let hud = JGProgressHUD(style: .dark)
             hud.textLabel.text = "Loading"
             hud.show(in: self.view)
-           Service.shared.fetchUsers { (users, err) in
-            if let err = err {
-                print("Failed to fetch courses:", err)
-                return
+            Service.shared.fetchUsers { (users, err) in
+                if let err = err {
+                    print("Failed to fetch courses:", err)
+                    return
+                }
+//                self.userViewModels = user.map({return UserViewModel(user: $0)})
+                self.userViewModels = user.map({return UserViewModel(user: $0)}).sorted(by: { (v1, v2) -> Bool in
+                    return v1.type > v2.type
+                })
+                DispatchQueue.main.async {
+                    self.tableview.reloadData()
+                    hud.dismiss()
+                }
             }
-            self.userViewModels = user.map({return UserViewModel(user: $0)})
-            DispatchQueue.main.async {
-                self.tableview.reloadData()
-                hud.dismiss()
-             }
-           }
-       }
-        self.userViewModels = user.map({return UserViewModel(user: $0)})
+        }
+//        self.userViewModels = user.map({return UserViewModel(user: $0)})
+        self.userViewModels = user.map({return UserViewModel(user: $0)}).sorted(by: { (v1, v2) -> Bool in
+            return v1.type > v2.type
+        })
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -79,6 +95,14 @@ extension UsersViewController:UITableViewDataSource{
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+//    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+//        let header = UIView(frame:  CGRect(x: 0,y: 0,width: view.frame.width,height: 100))
+//        header.backgroundColor = UIColor.gray
+////        header.addSubview(sortButton)
+//        sortButton.center = header.center
+//        return header
+//
+//    }
 }
 // MARK tableView delegate method
 extension UsersViewController:UITableViewDelegate{
